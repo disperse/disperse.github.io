@@ -9,6 +9,7 @@ The world map is a [face-vertex mesh](https://en.wikipedia.org/wiki/Polygon_mesh
 > C:\Program Files (x86)\Steam\steamapps\common\MountBlade Warband\Modules\Native 
 
 The first line of the file is the number of vertices followed by the x y z coordinates of each vertex. The order of the vertices is important.
+
 ``` 
 20791
 -177.735748 131.522049 -0.000002
@@ -18,6 +19,7 @@ The first line of the file is the number of vertices followed by the x y z coord
 ```
 
 At the end of the vertex list (starting on line 20793) is the faces list starting with the total number of faces.
+
 ```
 -36.298168 20.956806 1.360186
 -37.549831 20.234156 1.376480
@@ -32,7 +34,7 @@ At the end of the vertex list (starting on line 20793) is the faces list startin
 Each face consists of six numbers, the first number ( **0** 0 3 4 48 3 ) is the terrain used to paint the face, defined by the following table:
 
 | index | terrain         |
-| ----- |:---------------:|
+| ----- | :-------------: |
 | 0     | water           | 
 | 1     | mountain        |
 | 2     | steppe          |
@@ -54,4 +56,4 @@ The next two numbers ( 0 **0 3** 4 48 3 ) are 0 and 3 for all vertices, (if anyo
 
 The last three numbers ( 0 0 3 **4 48 3** ) are the indices of the vertexes that define the location of the three points of the face. So for this example you would look at lines 5, 49, and 4 (the first line is the # of vertices) to locate the vertices associated with the face.
 
-That's it! It is a fairly simple format. In future posts I'll take a look at the format of the parties.txt file used to position towns and other entities on the world map.
+That's it! It is a fairly simple format. In a future post I'll take a look at the format of the parties.txt file used to position towns and other entities on the world map.
