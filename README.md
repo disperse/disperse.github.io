@@ -1,5 +1,6 @@
 ## Print-friendly portfolio CV
 
+
 ![preview](https://github.com/user-attachments/assets/44c47034-06e4-412a-b9dd-014593b32215)
 
 ![Astro Badge](https://img.shields.io/badge/Astro-BC52EE?logo=astro&logoColor=fff&style=flat)
