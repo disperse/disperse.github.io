@@ -1,0 +1,160 @@
+---
+import WorkAchievements from "./WorkAchievements.astro";
+import WorkSkills from "./WorkSkills.astro";
+import WorkResponsibilities from "./WorkResponsibilities.astro";
+
+const { work } = Astro.props;
+const {
+  name,
+  startDate,
+  endDate,
+  position,
+  summary,
+  responsibilities,
+  achievements,
+  url,
+  skills,
+  location,
+  location_type,
+} = work;
+const startYear = new Date(startDate).getFullYear();
+const endYear = endDate != null ? new Date(endDate).getFullYear() : "Present";
+const showMore =
+  (responsibilities &&
+  responsibilities.length > 0) || 
+  (achievements &&
+  achievements.length > 0);
+---
+
+<li class="relative print:py-2 break-inside-avoid">
+  <div
+    class="group relative grid pb-1 transition-all sm:grid-cols-12 sm:gap-8 md:gap-6 lg:hover:!opacity-100 print:grid-cols-1 print:gap-1 print:pb-0"
+  >
+    <header class="relative mt-1 text-xs font-semibold sm:col-span-2">
+      <time datetime={startDate} data-title={startDate}>{startYear}</time> - <time
+        datetime={endDate}
+        data-title={endDate}>{endYear}</time
+      >
+    </header>
+    <div
+      class="relative flex flex-col pb-6 before:absolute before:-ml-6 before:mt-2 before:h-full before:w-px before:bg-skin-muted sm:col-span-10 print:pb-0 print:before:hidden"
+    >
+      <div
+        class="absolute mt-2 h-2 w-2 -translate-x-[1.71rem] rounded-full bg-skin-muted ring ring-skin-fill print:hidden"
+      >
+      </div>
+      <h3>
+        <div
+          class="group/link inline-flex items-center text-lg leading-tight focus-visible:text-amber-500 print:text-base"
+          aria-label="{position} - {company}"
+        >
+          <span
+            >{position}
+            <span>@</span>
+            {
+              url ? (
+                <a
+                  class="text-skin-hue print:text-skin-base"
+                  href={url}
+                  title={`Ver ${name}`}
+                  target="_blank"
+                >
+                  {name}
+                </a>
+              ) : (
+                <span>{name}</span>
+              )
+            }
+            {
+              url && (
+                <span class="inline-block text-skin-hue print:[&>svg]:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M5.22 14.78a.75.75 0 001.06 0l7.22-7.22v5.69a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75h-7.5a.75.75 0 000 1.5h5.69l-7.22 7.22a.75.75 0 000 1.06z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              )
+            }
+          </span>
+        </div>
+      </h3>
+      {
+        (location || location_type) && (
+          <div class="text-xs text-skin-muted">
+            {location} {location && location_type && "-"} {location_type}
+          </div>
+        )
+      }
+      <div
+        class="mt-4 flex flex-col gap-4 text-sm print:gap-0 print:text-xs"
+        x-data="{ expanded: false }"
+      >
+        {
+          summary && (
+            <div class="flex flex-col gap-1">
+              <h4>Summary:</h4>
+              <ul class="flex list-disc flex-col gap-2 text-skin-muted [&>li]:ml-4">
+                {Array.isArray(summary) ? (
+                  summary.map((item) => <li>{item}</li>)
+                ) : (
+                  <li>{summary}</li>
+                )}
+              </ul>
+            </div>
+          )
+        }
+
+        <div
+          class="relative flex flex-col gap-4 max-sm:!h-auto md:after:absolute md:after:bottom-0 md:after:h-12 md:after:w-full md:after:bg-gradient-to-t md:after:from-skin-hue md:after:content-[''] dark:md:after:to-skin-hue/0 print:!h-auto print:gap-2 print:after:hidden"
+          :class="expanded ? 'after:hidden' : ''"
+          x-show="expanded"
+          x-collapse.min.50px
+        >
+          {
+            responsibilities && responsibilities.length && (
+              <WorkResponsibilities responsibilities={responsibilities} />
+            )
+          }
+
+          {
+            achievements && achievements.length && (
+              <WorkAchievements achievements={achievements} />
+            )
+          }
+        </div>
+
+        {showMore && (
+        <button
+          @click="expanded = ! expanded"
+          class="group/more flex w-fit cursor-pointer items-center justify-center gap-1.5 text-xs text-skin-muted underline transition-all hover:text-skin-base print:hidden"
+        >
+          <span x-text="expanded ? 'Show less' : 'Show more'">Show more</span>
+          <svg
+            class="h-4 w-4 duration-200 ease-out group-hover/more:translate-y-0.5"
+            :class="{ 'rotate-180': expanded }"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="6 9 12 15 18 9"></polyline></svg
+          >
+        </button>
+        )}
+
+        <WorkSkills skills={skills} />
+      </div>
+    </div>
+  </div>
+</li>

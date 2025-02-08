@@ -1,0 +1,10 @@
+---
+const { achievements } = Astro.props;
+---
+
+<div class="flex flex-col gap-1">
+  <h4>Achievements:</h4>
+  <ul class="flex list-disc flex-col gap-2 text-skin-muted [&>li]:ml-4">
+    {achievements.map((achievement: string) => <li>{achievement}</li>)}
+  </ul>
+</div>

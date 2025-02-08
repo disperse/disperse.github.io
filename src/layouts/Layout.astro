@@ -34,20 +34,25 @@ const { image, summary, url, theme } = basics;
 		<meta name="twitter:description" content={summary} />
 		<meta name="twitter:image" content="" />
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Itim" />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Itim"
+		/>
 
 		<link rel="stylesheet" href="/themes/themes.css" />
 		<Vengeance />
 	</head>
 	<body data-theme={theme} class="relative bg-skin-fill">
 		<div class="absolute top-0 -z-10 h-full w-full print:hidden">
-			<div class="bg-skin-hue/10 absolute bottom-auto left-[20%] right-auto top-0 h-[200px] w-[200px] -translate-x-[30%] translate-y-[20%] rounded-full blur-[80px] invert-0 dark:bg-white/5"></div>
+			<div
+				class="absolute bottom-auto left-[20%] right-auto top-0 h-[200px] w-[200px] -translate-x-[30%] translate-y-[20%] rounded-full bg-skin-hue/10 blur-[80px] invert-0 dark:bg-white/5"
+			>
+			</div>
 		</div>
 		<slot />
 		<style is:global>
 			body,
 			figure {
-				margin: 0;
 				padding: 0;
 			}
 
@@ -104,9 +109,31 @@ const { image, summary, url, theme } = basics;
 				@apply !bg-zinc-800 !opacity-80;
 			}
 
+			@media screen {
+				body,
+				figure {
+					margin: 0;
+				}
+			}
+
+			@page {
+				margin: 0.5in !important;
+				size: auto;
+			}
+
 			@media print {
+				body {
+					padding: 0;
+					width: auto;
+					height: auto;
+				}
+
 				.no-print {
 					display: none !important;
+				}
+
+				.break-inside-avoid {
+					break-inside: avoid;
 				}
 
 				.print {

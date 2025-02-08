@@ -49,8 +49,8 @@
       ],
       "achievements": [
         "Architected and developed an automated financial document processing system",
-        "Modernized security infrastructure by migrating virus scanning to AWS GuardDuty",
-        "Created a comprehensive user management solution with Auth0 integration, including published npm packages"
+        "Created a comprehensive user management solution with Auth0 integration, including published npm packages",
+        "Modernized security infrastructure by migrating virus scanning to AWS GuardDuty"
       ],
       "skills": [
         "AWS",
@@ -80,9 +80,9 @@
       ],
       "achievements": [
         "Co-founded research technology company",
+        "Secured and managed client relationships from proposal to delivery",
         "Led design and execution of behavioral experiments with 1000+ participants",
-        "Research used to publish white papers based on experimental findings",
-        "Secured and managed client relationships from proposal to delivery"
+        "Research used to publish white papers based on experimental findings"
       ],
       "skills": [
         "Client Management",
@@ -110,14 +110,12 @@
         "Lead development of research platforms",
         "Manage and mentor development team",
         "Establish coding standards and best practices",
-        "Design software for data collection and analysis",
-        "Implement network science methodologies"
+        "Design software for data collection and analysis"
       ],
       "achievements": [
         "Architected and led development of three major research platforms: Breadboard, Trellis, and Hunala",
         "Successfully scaled platforms to support thousands of participants",
         "Led Covid-19 symptom tracking initiative using network science methodologies",
-        "Managed and mentored development team, establishing coding standards",
         "Received Linda K. Lorimer Award for Distinguished Service to Yale University, 2019",
         "Awarded Yale Tech Innovator Award, 2017"
       ],
@@ -144,20 +142,12 @@
       "location": "Boston, MA",
       "startDate": "2008-03-01",
       "endDate": "2013-06-01",
-      "summary": "Web applications developer specialized in experimental platforms and research tools, with expertise in developing scalable survey systems and social network data collection methods for mental health research.",
+      "summary": "Web applications developer specialized in experimental platforms and research tools, with expertise in developing scalable survey systems for mental health research.",
       "highlights": [
         "Led development of Breadboard platform, enabling researchers to conduct complex network-based human interaction experiments, significantly advancing behavioral research capabilities at Yale and partner institutions."
       ],
-      "responsibilities": [
-        "Design and develop experimental platforms",
-        "Program and maintain large-scale health surveys",
-        "Integrate social media APIs for network data collection",
-        "Support research data gathering and analysis",
-        "Rapid prototyping of research tools"
-      ],
       "skills": [
         "Angular",
-        "Blaise",
         "CSS",
         "Git",
         "Groovy",
@@ -165,7 +155,8 @@
         "Java",
         "JavaScript",
         "MySQL",
-        "PHP"
+        "PHP",
+        "Visual Basic"
       ]
     }
   ],
